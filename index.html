@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David — AI & ML Engineering Portfolio</title>
+
+<!-- Favicon: inline SVG "D" in teal on dark charcoal -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231b1f27'/%3E%3Ctext x='50' y='70' font-family='Arial,sans-serif' font-size='55' fill='%234fd8c7' text-anchor='middle' font-weight='700'%3ED%3C/text%3E%3C/svg%3E">
+
+<meta property="og:title" content="David — AI & ML Engineering Portfolio">
+<meta property="og:description" content="Computer Science undergraduate at the University of Ibadan. Python, machine learning, and data science projects.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://github.com/dahunsidavid19-a11y">
+<meta property="og:image" content="https://https://github.com/dahunsidavid19-a11y/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="David — AI & ML Engineering Portfolio">
+<meta name="twitter:description" content="Computer Science undergraduate at the University of Ibadan. Python, machine learning, and data science projects.">
+<meta name="twitter:image" content="https://https://github.com/dahunsidavid19-a11y/profile.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12151a;
+    --panel:#1b1f27;
+    --panel-2:#20242d;
+    --line:#2a2f3a;
+    --text:#eceff3;
+    --muted:#8b94a3;
+    --teal:#4fd8c7;
+    --green:#9adb5c;
+    --radius:10px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  :focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(18,21,26,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 24px;
+    max-width:920px;
+    margin:0 auto;
+  }
+
+  .logo{
+    font-family:'JetBrains Mono',monospace;
+    font-size:15px;
+    color:var(--teal);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  .logo .piece{
+    font-size:13px;
+    color:var(--teal);
+    line-height:1;
+  }
+
+  .navlinks{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .navlinks a:hover{color:var(--text);}
+
+  .navtoggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--text);
+    width:38px;
+    height:38px;
+    font-size:18px;
+    cursor:pointer;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:100px 24px 90px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+
+  #network{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:0.5;
+  }
+
+  .hero-inner{
+    position:relative;
+    max-width:920px;
+    margin:0 auto;
+    z-index:2;
+  }
+
+  .terminal-line{
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+    color:var(--green);
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:2px;
+  }
+
+  .cursor{
+    display:inline-block;
+    width:8px;
+    height:16px;
+    background:var(--green);
+    margin-left:4px;
+    animation:blink 1s step-start infinite;
+  }
+
+  @keyframes blink{50%{opacity:0;}}
+
+  .hero h1{
+    font-size:clamp(38px,7vw,64px);
+    line-height:1.05;
+    margin-bottom:16px;
+  }
+
+  .hero h1 span{color:var(--teal);}
+
+  .hero p{
+    max-width:560px;
+    color:var(--muted);
+    font-size:17px;
+    margin-bottom:32px;
+  }
+
+  .hero-links{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 22px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:500;
+    transition:transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    cursor:pointer;
+    border:none;
+  }
+
+  .btn svg{
+    width:16px;
+    height:16px;
+    fill:currentColor;
+    flex-shrink:0;
+  }
+
+  .btn-primary{
+    background:var(--teal);
+    color:#0d1115;
+  }
+
+  .btn-primary:hover{transform:translateY(-2px);}
+
+  .btn-ghost{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--text);
+  }
+
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{
+    padding:80px 24px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--teal);
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    margin-bottom:10px;
+  }
+
+  section h2{
+    font-size:28px;
+    margin-bottom:28px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+
+  .profile-img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    margin-bottom: 20px;
+    display: block;
+    object-fit: cover;
+  }
+
+  .about-text p{
+    color:var(--muted);
+    margin-bottom:16px;
+    max-width:52ch;
+  }
+
+  .about-text strong{color:var(--text);}
+
+  .facts{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .fact{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px;
+    background:var(--panel);
+  }
+
+  .fact .label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:6px;
+  }
+
+  .fact .value{font-size:15px;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+
+  .skill-group{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+  }
+
+  .skill-group h3{
+    font-size:15px;
+    margin-bottom:14px;
+    color:var(--teal);
+  }
+
+  .tag-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    padding:5px 10px;
+    border-radius:6px;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    color:var(--muted);
+  }
+
+  .tag-progress{
+    color:var(--green);
+    border-color:var(--green);
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .projects{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .project{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:20px;
+    transition:border-color 0.15s ease;
+  }
+
+  .project:hover{border-color:var(--teal);}
+
+  .project-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+
+  .project h3{
+    font-size:18px;
+    margin-bottom:8px;
+  }
+
+  .project p{
+    color:var(--muted);
+    font-size:14.5px;
+    margin-bottom:14px;
+    max-width:60ch;
+  }
+
+  .project-links{
+    margin-top:12px;
+    display:flex;
+    gap:12px;
+  }
+
+  .project-links a{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--teal);
+    text-decoration:underline;
+  }
+
+  .project-links span{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  /* ---------- NOW ---------- */
+  .now-strip{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 22px;
+  }
+
+  .dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--green);
+    flex-shrink:0;
+    animation:pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse{
+    0%,100%{opacity:1;}
+    50%{opacity:0.35;}
+  }
+
+  .now-strip p{color:var(--muted);font-size:14.5px;}
+  .now-strip strong{color:var(--text);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    border-bottom:none;
+    text-align:center;
+    padding-bottom:60px;
+  }
+
+  .contact h2{font-size:32px;}
+
+  .contact p{
+    color:var(--muted);
+    max-width:46ch;
+    margin:0 auto 30px;
+  }
+
+  .contact-links{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+
+  .contact-actions{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+  }
+
+  #copyFeedback{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--green);
+    opacity:0;
+    transition:opacity 0.3s ease;
+  }
+
+  footer{
+    text-align:center;
+    padding:24px;
+    font-size:13px;
+    color:var(--muted);
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:760px){
+    .navlinks{
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      padding:18px 24px;
+      gap:16px;
+      opacity:0;
+      transform:translateY(-8px);
+      visibility:hidden;
+      pointer-events:none;
+      transition:opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .navlinks.open{
+      opacity:1;
+      transform:translateY(0);
+      visibility:visible;
+      pointer-events:auto;
+    }
+    .navtoggle{display:block;}
+    .about-grid{grid-template-columns:1fr;}
+    .skill-groups{grid-template-columns:1fr;}
+    .project{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .cursor,.dot{animation:none;}
+    #network{display:none;}
+    .navlinks{
+      transition:none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <span class="logo">david<span style="color:var(--muted)">.dev</span><span class="piece" aria-hidden="true">♞</span></span>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="navtoggle" id="navtoggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <canvas id="network" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="terminal-line mono">david@ui:~$ whoami<span class="cursor"></span></div>
+    <h1>David.<br>Building toward <span>AI &amp; ML engineering</span>.</h1>
+    <p>Computer Science undergraduate at the University of Ibadan. I write Python, train small models, and turn football tactics and local data into ML projects.</p>
+    <div class="hero-links">
+      <a href="#projects" class="btn btn-primary">See my projects</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">01 — About</div>
+    <h2>Currently studying, building, and applying.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <img src="profile.jpg" alt="David's Profile Photo" class="profile-img">
+        <p>I'm a <strong>200-level CS student</strong> focused on Python, machine learning, and data science. Most of my week is split between coursework and self-directed projects — right now that means an AI/ML engineering internship track and a growing portfolio of finished builds.</p>
+        <p>Football is where a lot of my data instincts come from. Analyzing how midfielders like Kroos and Xavi move the ball taught me feature engineering and spatial clustering better than standard tutorials did.</p>
+        <p>Long term, I aim to work remotely as an ML engineer on high-impact teams — which is why this portfolio exists to showcase finished scripts and end-to-end applications.</p>
+      </div>
+      <div class="facts">
+        <div class="fact">
+          <div class="label">Based at</div>
+          <div class="value">University of Ibadan, Nigeria</div>
+        </div>
+        <div class="fact">
+          <div class="label">Focus</div>
+          <div class="value">Python · Machine Learning · Data Science</div>
+        </div>
+        <div class="fact">
+          <div class="label">Currently</div>
+          <div class="value">AI/ML Engineering Track — AI Fluency</div>
+        </div>
+        <div class="fact">
+          <div class="label">Communities</div>
+          <div class="value">Data Science Nigeria (UI) · GDG on Campus UI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">02 — Skills</div>
+    <h2>What I build with.</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data &amp; ML</h3>
+        <div class="tag-list">
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">mplsoccer</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools &amp; Web</h3>
+        <div class="tag-list">
+          <span class="tag">Git / GitHub</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Jupyter</span>
+          <span class="tag">Kaggle</span>
+          <span class="tag">REST APIs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">03 — Projects</div>
+    <h2>Things I've built and shipped.</h2>
+    <div class="projects">
+
+      <div class="project">
+        <div class="project-num mono">01</div>
+        <div>
+          <h3>Titanic Survival Prediction Model</h3>
+          <p>Classic ML implementation on Kaggle — cleaned missing passenger attributes, engineered family size and title features, and optimized a Random Forest classifier.</p>
+          <div class="tag-list">
+            <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Kaggle</span>
+          </div>
+          <div class="project-links">
+            <a href="https://www.kaggle.com/code/daviddahunsi/getting-started-with-titanic" target="_blank" rel="noopener">View Notebook →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-num mono">02</div>
+        <div>
+          <h3>Midfielder Passing-Style Clustering</h3>
+          <p>Work in progress: using K-means on StatsBomb event data to group elite midfielders by passing tendencies — distance, progressive direction, and risk — rather than surface-level stats.</p>
+          <div class="tag-list">
+            <span class="tag tag-progress">In Progress</span>
+            <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">StatsBomb API</span>
+          </div>
+          <div class="project-links">
+            <span>Repo coming soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-num mono">03</div>
+        <div>
+          <h3>Ibadan Weather Data Scraper &amp; Visualizer</h3>
+          <p>Planned next, after the midfielder clustering project: a script that will fetch daily micro-climate data for Ibadan, clean it with Pandas, and generate weekly visualization trends.</p>
+          <div class="tag-list">
+            <span class="tag tag-progress">Planned Next</span>
+            <span class="tag">Python</span><span class="tag">BeautifulSoup</span><span class="tag">Matplotlib</span>
+          </div>
+          <div class="project-links">
+            <span>Not started yet</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-num mono">04</div>
+        <div>
+          <h3>Chess Engine: Minimax &amp; Alpha-Beta Pruning</h3>
+          <p>Building a Python-based chess engine from scratch to explore game-tree search algorithms, heuristic evaluation functions, and strategic decision-making under constraints.</p>
+          <div class="tag-list">
+            <span class="tag tag-progress">In Progress</span>
+            <span class="tag">Python</span><span class="tag">Algorithms</span><span class="tag">Game Theory</span>
+          </div>
+          <div class="project-links">
+            <span>Repo coming soon</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="now-strip">
+      <span class="dot"></span>
+      <p><strong>Right now:</strong> mastering Python Object-Oriented Programming (OOP), API integration, and preparing my next LLM wrapper project.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">04 — Contact</div>
+    <h2>Let's connect.</h2>
+    <p>Open to AI/ML internships, data collaborations, or talking football tactics.</p>
+
+    <div class="contact-links">
+      <a href="https://github.com/dahunsidavid19-a11y" target="_blank" rel="noopener" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/david-dahunsi19" target="_blank" rel="noopener" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://www.instagram.com/david158112" target="_blank" rel="noopener" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.012-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.kaggle.com/daviddahunsi" target="_blank" rel="noopener" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-2.25 2.157v4.398c0 .188-.094.282-.281.282H4.426c-.188 0-.281-.094-.281-.282V.282c0-.188.093-.282.281-.282h2.778c.187 0 .281.094.281.282v15.21l7.102-7.383c.141-.141.293-.211.457-.211h3.444c.188 0 .27.094.246.281-.023.094-.082.188-.176.282l-6.328 6.328 6.809 8.648c.094.117.129.235.105.328z"/></svg>
+        Kaggle
+      </a>
+    </div>
+
+    <div class="contact-actions">
+      <button class="btn btn-primary" id="copyEmailBtn" style="min-width:220px;">
+        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy Email Address
+      </button>
+      <span id="copyFeedback">Copied to clipboard!</span>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> David — Built with HTML, CSS, &amp; JavaScript.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('navtoggle');
+  const links = document.getElementById('navlinks');
+
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  /* Copy Email Button */
+  const copyBtn = document.getElementById('copyEmailBtn');
+  const copyFeedback = document.getElementById('copyFeedback');
+  if(copyBtn){
+    copyBtn.addEventListener('click', async () => {
+      const email = 'dahunsidavid19@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        copyFeedback.style.opacity = '1';
+        setTimeout(() => { copyFeedback.style.opacity = '0'; }, 2000);
+      } catch (err) {
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        copyFeedback.style.opacity = '1';
+        setTimeout(() => { copyFeedback.style.opacity = '0'; }, 2000);
+      }
+    });
+  }
+
+  /* Signature element: a node network that reads as both a football
+     pass map and a small neural net — ties the two threads of the page. */
+  const canvas = document.getElementById('network');
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    const hero = document.querySelector('.hero');
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  if (!reduceMotion) {
+    const N = 22;
+    const nodes = Array.from({length: N}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25
+    }));
+
+    function step(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      nodes.forEach(n => {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+        if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+      });
+      for (let i = 0; i < N; i++){
+        for (let j = i + 1; j < N; j++){
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 160){
+            ctx.strokeStyle = `rgba(79, 216, 199, ${0.12 * (1 - dist / 160)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      nodes.forEach(n => {
+        ctx.fillStyle = 'rgba(154, 219, 92, 0.5)';
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(step);
+    }
+    step();
+  }
+</script>
+
+</body>
+</html>
